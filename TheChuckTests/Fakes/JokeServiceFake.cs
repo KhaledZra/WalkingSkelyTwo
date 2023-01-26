@@ -8,7 +8,7 @@ namespace TheChuckTests.Fakes
 
         public JokeServiceFake(Joke joke)
         {
-            this.joke = null;
+            this.joke = joke;
         }
 
         public Task<Joke?> GetJokeFromCategory(string category)

@@ -13,6 +13,9 @@ namespace TheChuck.Pages
         // Testa att sätta en breakpoint i OnGet, surfa till https://localhost:7070/?Who=Pär&Category=Animals och undersök vad som står i dessa
         [BindProperty(SupportsGet = true)]
         public string? Who { get; set; }
+        
+        [BindProperty(SupportsGet = true)]
+        public string? Test { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string? Category { get; set; }
@@ -35,7 +38,7 @@ namespace TheChuck.Pages
             try
             {
                 var joke = await _jokeService.GetRandomJoke();
-                DisplayText = joke?.Value.ToUpper() ?? "";
+                DisplayText = joke?.Value.Replace("Chuck Norris", Who) ?? "";
             }
             catch(Exception ex)
             {
